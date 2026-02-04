@@ -3,561 +3,498 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ConSySencI.A — Afiliados (Nível 1)</title>
-  <meta name="description" content="Política pública de afiliados do ConSySencI.A (Nível 1) e solicitação de aprovação manual." />
-  <meta name="theme-color" content="#050A08" />
+  <title>ConSySencI.A — Acesso para Afiliados</title>
+  <meta name="description" content="Libere seu acesso ao Grupo Oficial ConSySencI.A: informe o Gmail usado na compra e siga o passo a passo." />
+  <meta name="theme-color" content="#050812" />
 
   <style>
     :root{
-      --bg:#05080a;
-      --bg2:#070f12;
-      --card: rgba(10, 18, 18, .72);
-      --card2: rgba(12, 22, 22, .62);
-      --stroke: rgba(120, 255, 190, .18);
-      --stroke2: rgba(120, 255, 190, .10);
-
-      --text:#e7fff3;
-      --muted: rgba(231,255,243,.72);
-      --muted2: rgba(231,255,243,.55);
-
-      --neon:#39ff95;
-      --neon2:#00ffbf;
-      --warn:#ffd36a;
-      --danger:#ff5b7a;
-
-      --shadow: 0 24px 70px rgba(0,0,0,.55);
-      --glow: 0 0 0 1px rgba(57,255,149,.14), 0 0 48px rgba(57,255,149,.12);
-      --radius: 22px;
-      --radius2: 16px;
-
-      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      --bg:#050812;
+      --bg2:#070A12;
+      --card:#0B1020;
+      --line:rgba(0,255,156,.18);
+      --text:#E8F2FF;
+      --muted:rgba(232,242,255,.72);
+      --muted2:rgba(232,242,255,.55);
+      --neon:#00FF9C;
+      --neon2:#00E0A1;
+      --danger:#FF4D4D;
+      --shadow: 0 18px 60px rgba(0,0,0,.55);
+      --radius: 18px;
+      --radius2: 26px;
+      --max: 980px;
     }
 
-    *{ box-sizing:border-box; }
-    html, body { height:100%; }
+    *{box-sizing:border-box}
+    html,body{height:100%}
     body{
       margin:0;
-      font-family: var(--sans);
-      color: var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue", Helvetica, "Noto Sans", "Liberation Sans", sans-serif;
+      color:var(--text);
       background:
-        radial-gradient(1200px 800px at 15% 10%, rgba(57,255,149,.15), transparent 60%),
-        radial-gradient(900px 650px at 85% 20%, rgba(0,255,191,.12), transparent 55%),
-        radial-gradient(1000px 900px at 50% 100%, rgba(57,255,149,.09), transparent 60%),
+        radial-gradient(1200px 600px at 20% 0%, rgba(0,255,156,.14), transparent 60%),
+        radial-gradient(1000px 500px at 90% 10%, rgba(0,255,156,.10), transparent 55%),
+        radial-gradient(900px 500px at 50% 110%, rgba(0,255,156,.08), transparent 60%),
         linear-gradient(180deg, var(--bg), var(--bg2));
       overflow-x:hidden;
     }
 
-    .wrap{
-      max-width: 1040px;
-      margin: 0 auto;
-      padding: 28px 16px 68px;
+    /* subtle “data particles” */
+    .particles{
+      position:fixed; inset:0; pointer-events:none; z-index:0; opacity:.35;
+      background-image:
+        radial-gradient(circle at 10% 20%, rgba(0,255,156,.18) 0 1px, transparent 1px 100%),
+        radial-gradient(circle at 70% 30%, rgba(0,255,156,.14) 0 1px, transparent 1px 100%),
+        radial-gradient(circle at 40% 80%, rgba(0,255,156,.16) 0 1px, transparent 1px 100%);
+      background-size: 520px 520px, 640px 640px, 760px 760px;
+      animation: drift 18s linear infinite;
+      filter: blur(.1px);
+    }
+    @keyframes drift{
+      0%{transform:translate3d(0,0,0)}
+      50%{transform:translate3d(-20px, 18px, 0)}
+      100%{transform:translate3d(0,0,0)}
+    }
+
+    .wrap{position:relative; z-index:1;}
+    .topbar{
+      position:sticky; top:0; z-index:5;
+      backdrop-filter: blur(14px);
+      background: rgba(5,8,18,.55);
+      border-bottom: 1px solid rgba(0,255,156,.10);
+    }
+    .topbar-inner{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:14px 16px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      min-width:0;
+    }
+    .logo{
+      width:34px; height:34px; border-radius:12px;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(0,255,156,.35), transparent 60%),
+        linear-gradient(135deg, rgba(0,255,156,.22), rgba(0,255,156,.06));
+      border: 1px solid rgba(0,255,156,.25);
+      box-shadow: 0 10px 26px rgba(0,0,0,.35);
+      position:relative;
+    }
+    .logo:after{
+      content:"";
+      position:absolute; inset:8px;
+      border-radius:10px;
+      border:1px solid rgba(0,255,156,.35);
+      opacity:.9;
+    }
+    .brand h1{
+      font-size:14px; margin:0; letter-spacing:.2px; line-height:1.1;
+      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+    }
+    .pill{
+      font-size:12px; color:rgba(0,255,156,.95);
+      border:1px solid rgba(0,255,156,.25);
+      background: rgba(0,255,156,.06);
+      padding:8px 10px;
+      border-radius:999px;
+      display:flex; align-items:center; gap:8px;
+      white-space:nowrap;
+    }
+    .pill b{color:var(--text); font-weight:650}
+    .dot{
+      width:7px; height:7px; border-radius:50%;
+      background: var(--neon);
+      box-shadow: 0 0 18px rgba(0,255,156,.65);
+    }
+
+    .container{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:22px 16px 40px;
     }
 
     .hero{
-      position: relative;
-      padding: 22px 18px;
-      border: 1px solid var(--stroke2);
-      background: linear-gradient(180deg, rgba(10,18,18,.52), rgba(8,12,12,.28));
-      border-radius: var(--radius);
+      border:1px solid rgba(0,255,156,.14);
+      background: linear-gradient(180deg, rgba(11,16,32,.82), rgba(11,16,32,.55));
+      border-radius: var(--radius2);
       box-shadow: var(--shadow);
       overflow:hidden;
     }
-
-    .hero:before{
-      content:"";
-      position:absolute;
-      inset:-2px;
-      background:
-        radial-gradient(500px 280px at 20% 20%, rgba(57,255,149,.25), transparent 60%),
-        radial-gradient(420px 240px at 80% 30%, rgba(0,255,191,.18), transparent 55%),
-        linear-gradient(120deg, rgba(57,255,149,.08), transparent 55%);
-      filter: blur(8px);
-      opacity:.9;
-      pointer-events:none;
+    .hero-top{
+      padding:26px 18px 16px;
     }
-
-    .heroInner{ position:relative; display:flex; gap:16px; align-items:flex-start; justify-content:space-between; flex-wrap:wrap; }
-    .brand{
-      display:flex; align-items:center; gap:12px;
-      padding: 10px 12px;
-      border: 1px solid var(--stroke2);
-      border-radius: 999px;
-      background: rgba(0,0,0,.18);
-      box-shadow: var(--glow);
-      width: fit-content;
+    .kicker{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(0,255,156,.22);
+      background: rgba(0,255,156,.06);
+      color: rgba(0,255,156,.96);
+      font-size:12px;
+      letter-spacing:.2px;
     }
-    .dot{
-      width: 10px; height:10px; border-radius:50%;
-      background: var(--neon);
-      box-shadow: 0 0 18px rgba(57,255,149,.7);
+    .kicker .mini{opacity:.92}
+    .headline{
+      margin:14px 0 8px;
+      font-size:26px;
+      line-height:1.15;
+      letter-spacing:.2px;
     }
-    .brand strong{ letter-spacing:.6px; }
-    .brand span{ color: var(--muted); font-size: 13px; }
-
-    h1{
-      margin: 10px 0 6px;
-      font-size: clamp(24px, 4vw, 40px);
-      letter-spacing: .8px;
-    }
-    .sub{
-      margin: 0 0 6px;
-      color: var(--muted);
-      font-size: 15px;
-      line-height: 1.45;
+    .subhead{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.55;
       max-width: 70ch;
     }
-
-    .chips{ display:flex; gap:10px; flex-wrap:wrap; margin-top: 12px; }
-    .chip{
-      border: 1px solid var(--stroke2);
-      background: rgba(0,0,0,.18);
-      padding: 10px 12px;
-      border-radius: 999px;
-      display:flex; gap:10px; align-items:center;
-    }
-    .chip b{ color: var(--neon); }
-    .chip small{ color: var(--muted2); }
-
-    .grid{
-      margin-top: 18px;
+    .hero-grid{
       display:grid;
       grid-template-columns: 1fr;
-      gap: 14px;
+      gap:14px;
+      padding: 0 18px 18px;
     }
 
     .card{
-      border: 1px solid var(--stroke2);
-      background: linear-gradient(180deg, var(--card), var(--card2));
+      border:1px solid rgba(0,255,156,.12);
+      background: rgba(7,10,18,.55);
       border-radius: var(--radius);
-      box-shadow: var(--glow);
-      overflow:hidden;
+      padding: 16px;
     }
-
-    .cardHeader{
-      padding: 16px 16px 10px;
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap: 12px;
-      border-bottom: 1px solid rgba(120,255,190,.10);
+    .card h2{
+      margin:0 0 10px;
+      font-size:15px;
+      letter-spacing:.2px;
     }
-
-    .cardHeader h2{
-      margin: 0;
-      font-size: 18px;
-      letter-spacing:.3px;
-    }
-    .cardHeader p{
-      margin: 6px 0 0;
-      color: var(--muted);
-      font-size: 13px;
-      line-height:1.35;
-    }
-
-    .cardBody{ padding: 16px; }
-
-    .btn{
-      cursor:pointer;
-      border: 1px solid rgba(57,255,149,.22);
-      background: rgba(10, 18, 18, .55);
-      color: var(--text);
-      padding: 12px 14px;
-      border-radius: 999px;
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      box-shadow: 0 0 0 1px rgba(57,255,149,.10), 0 0 34px rgba(57,255,149,.10);
-      transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
-      user-select:none;
-    }
-    .btn:hover{
-      transform: translateY(-1px);
-      border-color: rgba(57,255,149,.35);
-      box-shadow: 0 0 0 1px rgba(57,255,149,.14), 0 0 52px rgba(57,255,149,.16);
-    }
-    .btn:active{ transform: translateY(0px) scale(.99); }
-
-    .btnPrimary{
-      background: radial-gradient(120px 60px at 30% 30%, rgba(57,255,149,.24), rgba(10,18,18,.45));
-      border-color: rgba(57,255,149,.35);
-    }
-
-    .hr{
-      height:1px;
-      background: rgba(120,255,190,.12);
-      margin: 14px 0;
-    }
-
-    .ctaCard{
-      border-radius: var(--radius);
-      border: 1px solid rgba(57,255,149,.18);
-      background: linear-gradient(180deg, rgba(0,0,0,.18), rgba(0,0,0,.08));
-      padding: 14px;
-    }
-
-    .ruleGrid{
+    .steps{
+      margin:0;
+      padding:0;
+      list-style:none;
       display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-top: 8px;
+      gap:10px;
     }
-    @media (max-width: 560px){
-      .ruleGrid{ grid-template-columns: 1fr; }
-    }
-    .rule{
-      padding: 12px;
-      border-radius: 14px;
-      border: 1px solid rgba(120,255,190,.12);
-      background: rgba(0,0,0,.16);
-    }
-    .rule b{ color: var(--neon); }
-    .rule div{ color: var(--muted); font-size: 13px; margin-top:6px; line-height:1.35; }
-
-    .checkRow{
-      display:flex; gap:10px; align-items:flex-start;
-      margin-top: 12px;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.4;
-    }
-    input[type="checkbox"]{
-      width: 20px; height: 20px;
-      accent-color: var(--neon);
-      margin-top: 2px;
-    }
-
-    .field{
-      margin-top: 12px;
+    .step{
       display:flex;
-      flex-direction:column;
-      gap:8px;
+      gap:12px;
+      align-items:flex-start;
+      padding:12px;
+      border-radius:14px;
+      border:1px solid rgba(0,255,156,.10);
+      background: rgba(11,16,32,.55);
     }
-    .label{
+    .n{
+      flex:0 0 auto;
+      width:28px; height:28px;
+      border-radius:10px;
+      display:grid; place-items:center;
+      border:1px solid rgba(0,255,156,.25);
+      background: rgba(0,255,156,.08);
+      color: rgba(0,255,156,.95);
+      font-weight:700;
+      box-shadow: 0 0 0 4px rgba(0,255,156,.06);
+    }
+    .step p{
+      margin:0;
       color: var(--muted);
-      font-size: 13px;
+      font-size:13px;
+      line-height:1.45;
+    }
+    .step p b{color:var(--text); font-weight:650}
+
+    .form{
+      display:grid;
+      gap:10px;
+      margin-top: 10px;
+    }
+    label{
+      font-size:12px;
+      color: var(--muted2);
     }
     .input{
       width:100%;
-      border-radius: 16px;
       padding: 14px 14px;
-      border: 1px solid rgba(57,255,149,.22);
-      background: rgba(0,0,0,.22);
+      border-radius: 14px;
+      border:1px solid rgba(0,255,156,.16);
+      background: rgba(5,8,18,.55);
       color: var(--text);
-      outline: none;
-      box-shadow: 0 0 0 1px rgba(57,255,149,.10), 0 0 34px rgba(57,255,149,.08);
-      font-size: 14px;
+      outline:none;
+      font-size:14px;
+      transition: .2s ease;
     }
     .input:focus{
-      border-color: rgba(57,255,149,.40);
-      box-shadow: 0 0 0 1px rgba(57,255,149,.16), 0 0 52px rgba(57,255,149,.14);
-    }
-    .error{
-      display:none;
-      color: rgba(255,91,122,.95);
-      font-size: 12px;
-      margin-top: 6px;
+      border-color: rgba(0,255,156,.42);
+      box-shadow: 0 0 0 4px rgba(0,255,156,.10);
     }
 
-    .ctaActions{ display:flex; gap:10px; flex-wrap:wrap; margin-top: 12px; }
-
-    .toast{
-      position: fixed;
-      left: 50%;
-      bottom: 18px;
-      transform: translateX(-50%);
-      background: rgba(0,0,0,.72);
-      border: 1px solid rgba(57,255,149,.22);
+    .row{
+      display:flex; gap:10px; flex-wrap:wrap;
+    }
+    .btn{
+      cursor:pointer;
+      border:none;
+      border-radius: 14px;
+      padding: 14px 14px;
+      font-size:14px;
+      font-weight:750;
+      letter-spacing:.2px;
+      color:#02120C;
+      background: linear-gradient(135deg, var(--neon), var(--neon2));
+      box-shadow: 0 16px 44px rgba(0,255,156,.18);
+      flex: 1 1 220px;
+      transition: transform .15s ease, filter .15s ease;
+    }
+    .btn:hover{filter:brightness(1.02)}
+    .btn:active{transform: translateY(1px)}
+    .btn.secondary{
       color: var(--text);
-      padding: 10px 12px;
-      border-radius: 999px;
-      box-shadow: var(--glow);
-      opacity: 0;
-      pointer-events:none;
-      transition: opacity .18s ease, transform .18s ease;
-      z-index: 50;
-      font-size: 13px;
-    }
-    .toast.show{
-      opacity: 1;
-      transform: translateX(-50%) translateY(-2px);
+      background: rgba(0,255,156,.08);
+      border:1px solid rgba(0,255,156,.20);
+      box-shadow:none;
+      font-weight:650;
     }
 
-    .policy ul{
-      margin: 10px 0 0;
-      padding-left: 18px;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.55;
+    .note{
+      margin:10px 0 0;
+      font-size:12px;
+      color: var(--muted2);
+      line-height:1.55;
     }
-    .policy li{ margin: 6px 0; }
+    .note b{color:var(--text)}
 
-    a{ color: rgba(57,255,149,.95); text-decoration: none; }
-    a:hover{ text-decoration: underline; }
-
-    .footerBtnRow{
-      margin-top: 12px;
-      display:flex;
-      justify-content:flex-start;
+    .rules{
+      display:grid;
       gap:10px;
+      margin-top: 12px;
+    }
+    .rule{
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+      padding: 12px;
+      border-radius: 14px;
+      border:1px solid rgba(0,255,156,.10);
+      background: rgba(11,16,32,.45);
+    }
+    .check{
+      width:20px; height:20px;
+      border-radius:7px;
+      border:1px solid rgba(0,255,156,.25);
+      background: rgba(0,255,156,.08);
+      display:grid; place-items:center;
+      color: rgba(0,255,156,.95);
+      flex:0 0 auto;
+      margin-top:1px;
+    }
+    .rule p{
+      margin:0;
+      font-size:13px;
+      color: var(--muted);
+      line-height:1.45;
+    }
+
+    .footer{
+      margin-top: 18px;
+      padding: 18px 2px 0;
+      color: rgba(232,242,255,.45);
+      font-size:12px;
+      display:flex;
       flex-wrap:wrap;
+      gap:10px;
+      justify-content:space-between;
+      align-items:center;
+    }
+    .footer a{
+      color: rgba(0,255,156,.85);
+      text-decoration:none;
+      border-bottom: 1px dashed rgba(0,255,156,.25);
+    }
+
+    /* desktop layout */
+    @media (min-width: 900px){
+      .hero-grid{
+        grid-template-columns: 1.1fr .9fr;
+        align-items:start;
+      }
+      .headline{font-size:32px}
+      .hero-top{padding:30px 26px 18px}
+      .hero-grid{padding: 0 26px 26px}
+      .card{padding:18px}
     }
   </style>
 </head>
 
 <body>
-  <div class="wrap">
-    <section class="hero" id="topo">
-      <div class="heroInner">
-        <div>
-          <div class="brand">
-            <div class="dot"></div>
-            <div>
-              <strong>ConSySencI.A</strong><br/>
-              <span>Programa de Afiliados • Nível 1</span>
-            </div>
-          </div>
+  <div class="particles" aria-hidden="true"></div>
 
-          <h1>Afiliado com primeiro saque rápido</h1>
-          <p class="sub">
-            Leia a política, concorde e solicite sua ativação. Inscrição manual para manter qualidade.
-          </p>
-
-          <div class="chips">
-            <div class="chip"><b>25%</b> <small>por venda</small></div>
-            <div class="chip"><b>30 dias</b> <small>cookies</small></div>
-            <div class="chip"><b>R$ 25</b> <small>saque mínimo</small></div>
-          </div>
-        </div>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <h1>ConSySencI.A</h1>
       </div>
-    </section>
+      <div class="pill">
+        <span class="dot" aria-hidden="true"></span>
+        <span><b>Acesso Afiliados</b> • Grupo Oficial</span>
+      </div>
+    </div>
+  </header>
 
-    <section class="grid">
-
-      <!-- ATIVAÇÃO -->
-      <article class="card">
-        <div class="cardHeader">
-          <div>
-            <h2>Ativação do afiliado</h2>
-            <p>Preencha o Gmail, aceite os termos e solicite via WhatsApp.</p>
+  <main class="wrap">
+    <div class="container">
+      <section class="hero">
+        <div class="hero-top">
+          <div class="kicker">
+            <span class="mini">✅</span>
+            <span>Entrada controlada • Processo rápido</span>
           </div>
+
+          <h2 class="headline">Libere seu acesso ao <span style="color:rgba(0,255,156,.95)">Grupo Oficial</span></h2>
+          <p class="subhead">
+            Esta página é exclusiva para quem já comprou o <b>Nível 1</b>.
+            Informe o <b>Gmail usado na compra</b> e finalize a liberação pelo WhatsApp.
+          </p>
         </div>
 
-        <div class="cardBody">
-          <div class="ctaCard">
-            <div class="ruleGrid">
+        <div class="hero-grid">
+          <!-- LEFT: Steps -->
+          <div class="card">
+            <h2>Como funciona (rápido)</h2>
+            <ol class="steps">
+              <li class="step">
+                <div class="n">1</div>
+                <p>Digite abaixo o <b>Gmail usado no cadastro/compra</b>.</p>
+              </li>
+              <li class="step">
+                <div class="n">2</div>
+                <p>Você será direcionado para o <b>WhatsApp</b> para confirmar o acesso.</p>
+              </li>
+              <li class="step">
+                <div class="n">3</div>
+                <p>Receberá as <b>regras</b> e o <b>link exclusivo</b> do Grupo Oficial.</p>
+              </li>
+              <li class="step">
+                <div class="n">4</div>
+                <p>Após entrar, aguarde a <b>aprovação</b> para acesso completo ✅</p>
+              </li>
+            </ol>
+
+            <div class="rules">
               <div class="rule">
-                <b>Comissão</b>
-                <div>25% por venda (4 vendas do nível 1 garante o retorno do seu investimento).</div>
+                <div class="check">✓</div>
+                <p><b>Importante:</b> use exatamente o mesmo Gmail da compra para evitar atraso na aprovação.</p>
               </div>
               <div class="rule">
-                <b>Cookies</b>
-                <div>30 dias para atribuição do link. (Acessando seu link 1 vez cada compra feita por esse cliente durante 30 dias você recebe comissão.)</div>
+                <div class="check">✓</div>
+                <p>O grupo é <b>oficial</b> e possui <b>regras</b>. O acesso é liberado após verificação.</p>
               </div>
-              <div class="rule">
-                <b>Saque mínimo</b>
-                <div>R$ 25. (Valor definido por conta das taxas do site para o saque, assim você recebe o valor total sem taxas.)</div>
-              </div>
-              <div class="rule">
-                <b>Afiliação</b>
-                <div>Manual (O administrador do site aprova novos membros fazendo nossa comunidade se tornar exclusiva).</div>
-              </div>
-            </div>
-
-            <!-- NOVO CAMPO: GMAIL -->
-            <div class="field">
-              <div class="label">Digite o Gmail cadastrado na plataforma aqui</div>
-              <input class="input" id="gmail" type="email" inputmode="email" placeholder="ex: seuemail@gmail.com" autocomplete="email" />
-              <div class="error" id="gmailError">Digite um Gmail válido (ex: seuemail@gmail.com).</div>
-            </div>
-
-            <div class="checkRow">
-              <input type="checkbox" id="agree" />
-              <label for="agree">
-                Li e concordo com a <a href="#afiliados">Política Pública de Afiliados</a>.
-              </label>
-            </div>
-
-            <div class="ctaActions">
-              <button class="btn btnPrimary" id="btnBecome" disabled>
-                <span class="dot" style="width:8px;height:8px"></span>
-                Tornar-me afiliado agora
-              </button>
-
-              <button class="btn" onclick="window.location.href='#afiliados'">Ver política</button>
             </div>
           </div>
-        </div>
-      </article>
 
-      <!-- POLÍTICA -->
-      <section class="card" id="afiliados">
-        <div class="cardHeader">
-          <div>
-            <h2>Política pública de afiliados</h2>
-            <p>Documento público e simples para transparência e alinhamento.</p>
-          </div>
-          <button class="btn btnPrimary" id="btnCopyPolicy" aria-label="Copiar política">
-            <span class="dot" style="width:8px;height:8px"></span>
-            Copiar política
-          </button>
-        </div>
+          <!-- RIGHT: Form -->
+          <div class="card">
+            <h2>Confirmar Gmail e ir para o WhatsApp</h2>
 
-        <div class="cardBody policy">
-          <div>
-            <h3 style="margin:0 0 10px; font-size:15px;">1) Objetivo</h3>
-            <div style="color:var(--muted); font-size:13px; line-height:1.55;">
-              O Programa de Afiliados ConSySencI.A permite que parceiros indiquem todos os Produtos e recebam comissão por vendas confirmadas,
-              seguindo regras claras de atribuição e conduta.
-            </div>
+            <form class="form" id="accessForm" autocomplete="on">
+              <label for="gmail">Seu Gmail (o mesmo usado na compra)</label>
+              <input
+                class="input"
+                id="gmail"
+                name="gmail"
+                type="email"
+                inputmode="email"
+                placeholder="ex: seuemail@gmail.com"
+                required
+              />
 
-            <div class="hr"></div>
+              <div class="row">
+                <button class="btn" type="submit">Liberar acesso no WhatsApp</button>
+                <button class="btn secondary" type="button" id="copyBtn">Copiar Gmail</button>
+              </div>
 
-            <h3 style="margin:0 0 10px; font-size:15px;">2) Regras principais (públicas)</h3>
-            <ul>
-              <li><b>Comissão:</b> 25% por venda dos Produtos.</li>
-              <li><b>Cookies:</b> 30 dias. Se o comprador finalizar dentro desse período, a venda é atribuída ao afiliado.</li>
-              <li><b>Saque mínimo:</b> R$ 25.</li>
-              <li><b>Inscrição manual:</b> solicitações podem ser aprovadas ou recusadas.</li>
-            </ul>
+              <p class="note" id="helper">
+                Ao continuar, você enviará uma mensagem automática para o WhatsApp contendo seu Gmail.
+                <br />
+                <b>Dica:</b> se o WhatsApp não abrir, copie o Gmail e envie manualmente para o atendimento.
+              </p>
 
-            <div class="hr"></div>
+              <p class="note" id="error" style="display:none; color: rgba(255,77,77,.92);">
+                Verifique se o Gmail está correto (ex: nome@gmail.com).
+              </p>
+            </form>
 
-            <h3 style="margin:0 0 10px; font-size:15px;">3) Conduta e divulgação (obrigatório)</h3>
-            <ul>
-              <li>Proibido prometer ganhos garantidos, mentir sobre o produto ou induzir a erro.</li>
-              <li>Proibido anúncios enganosos e uso indevido de marca/identidade.</li>
-              <li>Divulgação ética, com clareza e boa-fé.</li>
-            </ul>
-
-            <div class="hr"></div>
-
-            <h3 style="margin:0 0 10px; font-size:15px;">4) Validação e pagamentos</h3>
-            <ul>
-              <li>Comissão é devida apenas em vendas confirmadas e não contestadas.</li>
-              <li>Fraude/abuso/chargeback podem gerar recusa, suspensão ou bloqueio.</li>
-              <li>Prazo e forma de saque seguem as regras da plataforma da loja.</li>
-            </ul>
-
-            <div class="hr"></div>
-
-            <h3 style="margin:0 0 10px; font-size:15px;">5) Suporte e contato</h3>
-            <ul>
-              <li>Canal oficial: WhatsApp do responsável da loja.</li>
-            </ul>
-
-            <div class="footerBtnRow">
-              <button class="btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">Voltar ao topo</button>
+            <div class="footer">
+              <span>© <span id="year"></span> ConSySencI.A • Todos os direitos reservados.</span>
+              <span><a href="https://wa.me/5511934929066" target="_blank" rel="noopener">Falar no WhatsApp</a></span>
             </div>
           </div>
         </div>
       </section>
-    </section>
-  </div>
-
-  <div class="toast" id="toast">OK ✅</div>
+    </div>
+  </main>
 
   <script>
-    // ====== CONFIG ======
-    const WHATSAPP_NUMBER = "5511934929066";
+    // ✅ CONFIG: WhatsApp de liberação
+    const WHATSAPP_NUMBER = "5511934929066"; // sem +, sem espaços
 
-    // ====== UI ======
-    const toast = document.getElementById("toast");
-    function showToast(msg="OK ✅"){
-      toast.textContent = msg;
-      toast.classList.add("show");
-      setTimeout(()=>toast.classList.remove("show"), 1400);
+    const form = document.getElementById("accessForm");
+    const gmailInput = document.getElementById("gmail");
+    const error = document.getElementById("error");
+    const copyBtn = document.getElementById("copyBtn");
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    function isValidGmail(email){
+      // Aceita qualquer e-mail, mas recomenda Gmail. Se quiser travar SÓ gmail, descomente a linha abaixo.
+      // return /^[a-zA-Z0-9._%+-]+@gmail\.com$/i.test(email.trim());
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
     }
 
-    // ====== POLICY COPY ======
-    const policyText = [
-      "Política pública de afiliados — ConSySencI.A (Nível 1)",
-      "",
-      "1) Objetivo",
-      "O programa permite indicar o Produto Nível 1 (R$ 25) e receber comissão por vendas confirmadas.",
-      "",
-      "2) Regras principais",
-      "• Comissão: 25% por venda (R$ 6,25).",
-      "• Cookies: 30 dias.",
-      "• Saque mínimo: R$ 25.",
-      "• Inscrição manual: solicitações podem ser aprovadas ou recusadas.",
-      "",
-      "3) Conduta",
-      "• Proibido prometer ganhos garantidos ou divulgar de forma enganosa.",
-      "• Proibido spam, fraude, uso indevido de marca/identidade.",
-      "• Divulgação ética e transparente.",
-      "",
-      "4) Validação",
-      "• Comissão apenas em vendas confirmadas e não contestadas.",
-      "• Fraude/abuso/chargeback podem gerar recusa/suspensão/bloqueio."
-    ].join("\n");
+    function openWhatsApp(email){
+      const text =
+`Olá! Quero liberar meu acesso ao Grupo Oficial ConSySencI.A.
+Gmail (usado na compra): ${email}
 
-    async function copyText(text){
-      try{
-        await navigator.clipboard.writeText(text.trim());
-        showToast("Copiado ✅");
-      }catch(e){
-        const ta = document.createElement("textarea");
-        ta.value = text.trim();
-        document.body.appendChild(ta);
-        ta.select();
-        document.execCommand("copy");
-        ta.remove();
-        showToast("Copiado ✅");
-      }
-    }
-    document.getElementById("btnCopyPolicy").addEventListener("click", ()=> copyText(policyText));
+Por favor, envie as regras e o link exclusivo do grupo. ✅`;
 
-    // ====== VALIDATION + CTA ======
-    const agree = document.getElementById("agree");
-    const btnBecome = document.getElementById("btnBecome");
-    const gmail = document.getElementById("gmail");
-    const gmailError = document.getElementById("gmailError");
-
-    function isValidGmail(v){
-      const val = (v || "").trim().toLowerCase();
-      // Gmail padrão (aceita pontos e +)
-      return /^[a-z0-9](\.?[a-z0-9_\-+]){1,}@gmail\.com$/.test(val);
-    }
-
-    function updateButtonState(){
-      const okTerms = agree.checked;
-      const okMail = isValidGmail(gmail.value);
-      btnBecome.disabled = !(okTerms && okMail);
-      gmailError.style.display = (gmail.value.trim().length && !okMail) ? "block" : "none";
-    }
-
-    agree.addEventListener("change", updateButtonState);
-    gmail.addEventListener("input", updateButtonState);
-    gmail.addEventListener("blur", updateButtonState);
-
-    btnBecome.addEventListener("click", ()=>{
-      const mail = gmail.value.trim();
-      if(!isValidGmail(mail)){
-        showToast("Gmail inválido");
-        gmail.focus();
-        return;
-      }
-      if(!agree.checked){
-        showToast("Aceite os termos");
-        return;
-      }
-
-      const message = [
-        "Estou me tornando um afiliado hoje e estou pronto para crescer contigo 🚀",
-        "",
-        "✅ Gmail cadastrado na plataforma:",
-        mail
-      ].join("\n");
-
-      const url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(message);
-
-      // mais confiável em mobile:
+      const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
       window.location.href = url;
+    }
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const email = gmailInput.value.trim();
+
+      if(!isValidGmail(email)){
+        error.style.display = "block";
+        gmailInput.focus();
+        return;
+      }
+      error.style.display = "none";
+      openWhatsApp(email);
     });
 
-    // init
-    updateButtonState();
+    copyBtn.addEventListener("click", async () => {
+      const email = gmailInput.value.trim();
+      if(!email){
+        gmailInput.focus();
+        return;
+      }
+      try{
+        await navigator.clipboard.writeText(email);
+        copyBtn.textContent = "Copiado ✅";
+        setTimeout(() => (copyBtn.textContent = "Copiar Gmail"), 1400);
+      }catch(err){
+        // fallback
+        gmailInput.select();
+        document.execCommand("copy");
+        copyBtn.textContent = "Copiado ✅";
+        setTimeout(() => (copyBtn.textContent = "Copiar Gmail"), 1400);
+      }
+    });
   </script>
 </body>
 </html>
